@@ -13,3 +13,17 @@ export const deleteBook = (id) => {
     payload: id,
   };
 };
+
+export const toggleFavorite = (id) => {
+  return {
+    type: a.TOGGLE_FAVORITE,
+    payload: id,
+  };
+};
+
+//   Неявный возврат объекта
+
+// export const toggleFavorite = (id) => ({
+//   type: a.TOGGLE_FAVORITE,
+//   payload: id,
+// })

@@ -52,10 +52,10 @@
 }
 
 .book-list .star-icon {
-  width: 24px;
-  height: 24px;
-  margin: 0 20px;
+  width: 28px;
+  height: 28px;
+  margin: 0 15px;
   cursor: pointer;
   transition: color 0.3s ease;
-  color: #fca510;
+  color: #5cb316;
 }
