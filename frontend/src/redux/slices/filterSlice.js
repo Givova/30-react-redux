@@ -13,12 +13,16 @@ const filterSlice = createSlice({
       // you can mutate state thanks to Immer lubrary
       state.title = action.payload;
     },
+    resetFilter: (state) => {
+      return { ...initialState };
+    },
+    
   },
 });
 
 // const setTitleFilter = filterSlice.actions.setTitleFilter;
 
-export const { setTitleFilter } = filterSlice.actions;
+export const { setTitleFilter, resetFilter } = filterSlice.actions;
 
 export const selectTitleFilter = (state) => state.filter.title;
 
