@@ -3,6 +3,8 @@ import {
   setTitleFilter,
   resetFilter,
   selectTitleFilter,
+  selectAuthorFilter,
+  setAuthorFilter,
 } from "../../redux/slices/filterSlice";
 import "./Filter.css";
 
@@ -10,6 +12,8 @@ import "./Filter.css";
 const Filter = () => {
   const dispatch = useDispatch();
   const titleFilter = useSelector(selectTitleFilter);
+  const authorFilter = useSelector(selectAuthorFilter);
+
 
   const handleTitleFilterChange = (e) => {
     dispatch(setTitleFilter(e.target.value));
@@ -17,6 +21,10 @@ const Filter = () => {
 
   const handleResetFilter = () => {
     dispatch(resetFilter());
+  };
+
+  const handleAuthorFilterChange = (e) => {
+    dispatch(setAuthorFilter(e.target.value));
   };
   return (
     <div className="app-block filter">
@@ -29,7 +37,15 @@ const Filter = () => {
             onChange={handleTitleFilterChange}
           />
         </div>
-          <button type="button" onClick={handleResetFilter}>Reset Filters</button>
+        <div className="filter-group">
+          <input
+            type="text"
+            value={authorFilter}
+            placeholder="Filter by author..."
+            onChange={handleAuthorFilterChange}
+          />
+        </div>
+        <button type="button" onClick={handleResetFilter}>Reset Filters</button>
       </div>
     </div>
   );
