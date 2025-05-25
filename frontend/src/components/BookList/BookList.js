@@ -33,9 +33,16 @@ const BookList = () => {
     if (!filter) return text;
 
     const regex = new RegExp(`(${filter})`, 'gi');
-    console.log(text.split(regex))
+    
 
-    return text.split(regex)
+    return text.split(regex).map((part, i) => {
+      if(part.toLowerCase()=== filter.toLowerCase()){
+        return(
+          <span key={i} className="highlight">{part}</span>
+        )
+      }
+      return part;
+    })
   }
 
   return (
