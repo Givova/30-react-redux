@@ -7,8 +7,8 @@ const booksSlice = createSlice({
   initialState,
   reducers:{
     addBook: (state, action) => {
-        // return [...state, action.payload]; так мы делали, можно по другому.
-      state.push(action.payload);
+        // state.push(action.payload); // Благодаря Immer, можно мутировать состояние напрямую
+        return [...state, action.payload]; // Альтернативный иммутабельный способ
     },
     deleteBook: (state, action) => {
     //   const index =  state.findIndex((book) => book.id === action.payload);
