@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 // import { addBook } from "../../redux/books/actionCreators";
-import { addBook } from "../../redux/slices/booksSlice";
+import { addBook, thunkFunction } from "../../redux/slices/booksSlice";
 import createBookWithID from "../../utils/createBookWithID";
 import booksData from "../../data/books.json";
 import "./BookForm.css";
@@ -23,25 +22,14 @@ const BookForm = () => {
     e.preventDefault();
 
     if (title && author) {
-      //   console.log(addBook(book));
       dispatch(addBook(createBookWithID({ title, author }, 'manual')));
-
       setTitle("");
       setAuthor("");
     }
   };
 
-  const handleAddRandomBookViaAPI  = async () => {
-    try {
-     
-    const res = await axios.get('http://localhost:4000/random-book')
-    // createBookWithID({title, author})
-    if (res?.data?.title && res?.data?.author) {
-      dispatch(addBook(createBookWithID(res.data, 'API'))) 
-    } 
-    } catch (error) {
-      console.log(error, 'error featchihg random-book') 
-    }
+  const handleAddRandomBookViaAPI  = () => {
+      dispatch(thunkFunction)
  
   }
   return (
